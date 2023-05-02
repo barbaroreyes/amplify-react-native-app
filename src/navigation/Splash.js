@@ -18,7 +18,7 @@ export default function Splash({setUsers,setIsLoading}) {
        }) 
     },[]);
     return(<View style={{flex:1,alignItems: 'center',justifyContent: 'center'}}>
-             <MyText type="title">clock</MyText>
+             <MyText type="title">Clock</MyText>
              <MyText type="title">Loading...</MyText>
 
            </View>)
