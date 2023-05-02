@@ -55,7 +55,7 @@ function AuthProvider ({children}) {
                  password
             })
             console.log("Confirm signUp ")
-            setAuthState("signIn")
+            setAuthState("signUp")
         } catch (e) {
             alert(e.message)
             setIsLoading(false)
@@ -74,7 +74,7 @@ function AuthProvider ({children}) {
                  verificationCode
             })
             alert("Confirmed , You can Now sign In ")
-            setAuthState("signIn")
+            setAuthState("confirmSignup")
             setIsLoading(false)
         } catch (error) {
             alert(error.message)
@@ -108,3 +108,4 @@ function AuthProvider ({children}) {
     </Provider>
  )
 }
+export {AuthContext,AuthProvider} 
