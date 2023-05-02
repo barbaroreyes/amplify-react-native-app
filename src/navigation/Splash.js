@@ -7,10 +7,10 @@ export default function Splash({setUsers,setIsLoading}) {
     React.useEffect(()=>{
        (async () => {
         try {
-          const {atributes}=  await Auth.currentAuthenticatedUser();
-            setUsers(atributes)
+          const {attributes} =  await Auth.currentAuthenticatedUser();
+            setUsers(attributes)
             setIsLoading(false)
-            console.log(atributes)
+            console.log(attributes)
         } catch (error) {
             console.log(error)
             setIsLoading(false)
@@ -18,7 +18,7 @@ export default function Splash({setUsers,setIsLoading}) {
        }) 
     },[]);
     return(<View style={{flex:1,alignItems: 'center',justifyContent: 'center'}}>
-             <MyText type="title">Clock</MyText>
+             <MyText type="title">🕰</MyText>
              <MyText type="title">Loading...</MyText>
 
            </View>)
