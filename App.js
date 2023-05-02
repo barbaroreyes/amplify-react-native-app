@@ -1,35 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Button } from 'react-native';
+import * as React from "react";
 import {withAuthenticator} from 'aws-amplify-react-native'
-import {Amplify ,Auth} from 'aws-amplify'
+import {Amplify ,Auth,Hub} from 'aws-amplify'
 import awsConfi from './src/aws-exports'
-import SignIn from './src/components/SignIn';
+import AuthScreen from './src/screens/AuthScreen'
+import Splash from './src/navigation/Splash'
+import Root  from './src/navigation/Root'
 
 Amplify.configure(awsConfi)
 
-const App = () => {
-  const signOut = async()=>{
-    try {
-      await Auth.signOut()
-    } catch (error) {
-      
-    }
+export default function App (){
+const [user,setUsers] = React.useState(null)
+const [isLoading,setIsLoading] = React.useState(true)
+if(isLoading) return <Splash setUsers={setUsers} isLoading={setIsLoading}/>
+return user ? <Root/>: <AuthScreen/>
 
-  }
-  return (
-    <View style={styles.container}>
-     <SignIn/>
-    </View>
-  );
-}
+}  
+  
+ 
 
-export default App
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
