@@ -1,10 +1,12 @@
 import * as React from "react";
+import {View} from 'react-native'
 import {withAuthenticator} from 'aws-amplify-react-native'
 import {Amplify ,Auth,Hub} from 'aws-amplify'
 import awsConfi from './src/aws-exports'
 import AuthScreen from './src/screens/AuthScreen'
 import Splash from './src/navigation/Splash'
 import Root  from './src/navigation/Root'
+
 
 Amplify.configure(awsConfi);
 
@@ -20,20 +22,16 @@ const listener = (data) => {
       setUsers(attributes);
       console.log('user,sign  from hub');
       break;
-      case "signOut":
+    case "signOut":
         setUsers(null);
         console.log('user,sign out');
-        default:
-          break;	
-
-
+    default:
+      break;	
   }
-
 }
 Hub.listen('auth',listener);
 if(isLoading) return <Splash setUsers={setUsers} setIsLoading={setIsLoading}/>
 return user ? <Root/>: <AuthScreen/>
-
 }  
   
  

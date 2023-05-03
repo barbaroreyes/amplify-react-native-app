@@ -11,9 +11,9 @@ const AuthContext = React.createContext({
    verificationCode : "",
     setVerificationCode:()=>{},
    isLoading : false,
-   handleSigIn :()=>{},
-   handleSigUp :()=>{},
-   handleConfirmSigUp :()=>{},
+   handleSignIn :()=>{},
+   handleSignUp:()=>{},
+   handleConfirmSignUp:()=>{},
 })
 
 const  {Provider}  = AuthContext
@@ -25,7 +25,7 @@ function AuthProvider ({children}) {
     const [isLoading ,setIsLoading] = React.useState(false)
 
 
-    async function handleSigIn (){
+    async function handleSignIn (){
         if(!email || !password){
             alert("Please enter a valid  email and password")
             return;
@@ -43,7 +43,7 @@ function AuthProvider ({children}) {
             setIsLoading(false)
         }
     }
-    async function handleSigUp (){
+    async function handleSignUp (){
         if(!email || !password){
             alert("Please enter a valid  email and password")
             return;
@@ -62,7 +62,7 @@ function AuthProvider ({children}) {
         }
     }
 
-    async function handleConfirmSigUp (){
+    async function handleConfirmSignUp (){
         if(!verificationCode){
             alert("Please enter a verification Code ")
             return;
@@ -92,15 +92,14 @@ function AuthProvider ({children}) {
         setEmail,
         password,
         setPassword,
-        handleSigIn,
-        handleSigUp,
-        handleConfirmSigUp,
+        handleSignIn,
+        handleSignUp,
+        handleConfirmSignUp ,
         verificationCode,
         setVerificationCode,
         isLoading
     }}>
-        {children},
-
+        {children}
     </Provider>
  )
 }
