@@ -7,7 +7,6 @@ import AuthScreen from './src/screens/AuthScreen'
 import Splash from './src/navigation/Splash'
 import Root  from './src/navigation/Root'
 
-
 Amplify.configure(awsConfi);
 
 export default function App (){

@@ -19,8 +19,8 @@ const AuthContext = React.createContext({
 const  {Provider}  = AuthContext
 function AuthProvider ({children}) {
     const [authState ,setAuthState] = React.useState('signIn')
-    const [email ,setEmail] = React.useState('')
-    const [password ,setPassword] = React.useState('')
+    const [email ,setEmail] = React.useState("")
+    const [password ,setPassword] = React.useState("")
     const [verificationCode ,setVerificationCode] = React.useState("")
     const [isLoading ,setIsLoading] = React.useState(false)
 
@@ -34,7 +34,7 @@ function AuthProvider ({children}) {
             setIsLoading(true)
             const user = await Auth.signIn({
                 username: email,
-                 password
+                 password,
             })
             console.log("user signed in ")
             setAuthState("signedIn")
